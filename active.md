@@ -69,47 +69,49 @@ has_toc: true
 
 #### [primordial sea] - 1.5 xtz [3/10]
 
-[![primordial sea](https://assets.objkt.media/file/assets-003/Qma4TuwHFEBLGLQBD97d9nERttasEjycrynYSJbT65LJbe/artifact)](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/9){:target="_blank"}
+[![primordial sea](https://i.imgur.com/WxhfGSF.jpg)](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/9){:target="_blank"}
 
 #### [a.return.to.trash] - 1.5 xtz [6/10]
 
-[![a.return.to.trash](https://assets.objkt.media/file/assets-003/QmXL1x9aXcnm2jFusdrxocZFhHWZjHbBf7deDfP8VKQZbU/artifact)](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/8){:target="_blank"}
+[![a.return.to.trash](https://i.imgur.com/oc1zpsg.jpg)](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/8){:target="_blank"}
 
 #### [everything is fine] - 2.5 xtz [5/10]
 
-[![everything is fine](https://assets.objkt.media/file/assets-003/QmNrvcDGemv57hjzPTYZtd1ipPnRYueVhxR3XbBXVY6z62/artifact)](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/11){:target="_blank"}
+[![everything is fine](https://i.imgur.com/7nRhaFs.jpg)](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/11){:target="_blank"}
 
 #### [hallowed trash] - 1.5 xtz [10/10]
 
-[![hallowed trash](https://assets.objkt.media/file/assets-003/QmagRyrB9oXDD5zkxjCiscpqKZDPJRv6aGXBefqCcdDTQz/artifact)](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/12){:target="_blank"}
+[![hallowed trash](https://i.imgur.com/DBimVtV.png)](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/12){:target="_blank"}
 
 #### [creep_reunion] - 2.5 xtz [11/12]
 
-[![creep_reunion](https://assets.objkt.media/file/assets-003/QmRhoAQXKR5CKaEH8cxoWZZc3xHjeM88RhtYb9ovZ6G5jj/artifact)](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/13){:target="_blank"}
+[![creep_reunion](https://i.imgur.com/1vUIRjr.jpg)](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/13){:target="_blank"}
 
 #### [glitched_form] - 1.5 xtz [4/5]
 
-[![glitched_form](https://i.imgur.com/7uG2Dln.gif)](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/14){:target="_blank"}
+[glitched_form on objkt](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/14){: .btn }{:target="_blank"}
+<video autoplay loop muted playsinline>
+  <source src="https://i.imgur.com/7uG2Dln.mp4" type="video/mp4">
+</video>
 
 #### [log/glitch] - 5 xtz [3/5]
 
-[![log/glitch](https://assets.objkt.media/file/assets-003/QmNfVFfsLGyRdtU3iayEagxeeurDVVmwDkho7zSsjyottE/artifact)](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/1){:target="_blank"}
+[log/glitch on objkt](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/1){: .btn }{:target="_blank"}
+<video autoplay loop muted playsinline>
+  <source src="https://i.imgur.com/OwrIocB.mp4" type="video/mp4">
+</video>
 
 #### [ascii.noise] - 1 xtz [5/5]
 
-[![ascii.noise](https://assets.objkt.media/file/assets-003/QmRvpzoA5XdMdDPY6vdC1bcMwsW2ckRCc8x3yK6ibysmyX/artifact)](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/4){:target="_blank"}
+[![ascii.noise](https://i.imgur.com/u5oReZp.png)](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/4){:target="_blank"}
 
 #### [rot] - 0.5 xtz [87/100]
 
-[![rot](https://assets.objkt.media/file/assets-003/QmV5duGohY7NJYgygs4jynGHASiC3RgVr3yBfu5YEd7DjF/artifact)](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/6){:target="_blank"}
+[![rot](https://i.imgur.com/7R0PtS6.png)](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/6){:target="_blank"}
 
 #### [dearth] - 50 xtz [1/1]
 
-[![dearth](https://assets.objkt.media/file/assets-003/Qmah4ySZMNULeNgpim6E5wbtdsCpWh6ejxwq5ESJYvWdgr/artifact)](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/7){:target="_blank"}
-
-#### [a.return.to.trash] - 1.5 xtz [6/10]
-
-[![a.return.to.trash](https://assets.objkt.media/file/assets-003/QmXL1x9aXcnm2jFusdrxocZFhHWZjHbBf7deDfP8VKQZbU/artifact)](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/8){:target="_blank"}
+[![dearth](https://i.imgur.com/hB59m1C.jpg)](https://objkt.com/asset/KT1XBahGr4MxXXJeKKAkZhFytJMSY8JnoRQG/7){:target="_blank"}
 
 ### teia
 
