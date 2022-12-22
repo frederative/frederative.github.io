@@ -1,6 +1,7 @@
 title: frederative
 description: generative artist exploring nature-based algorithms
-theme: just-the-docs
+# theme: just-the-docs
+remote_theme: "pmarsceill/just-the-docs"
 
 color_scheme: dark
 
