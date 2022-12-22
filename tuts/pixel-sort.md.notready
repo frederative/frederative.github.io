@@ -1,0 +1,282 @@
+---
+title: pixel sorting
+layout: default
+parent: tutorials
+has_toc: true
+---
+
+# Automating Pixel Sorting
+{: .no_toc }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+# Intro
+
+Pixel sorting is a fun glitch technique where you can accomplish an ethereal smearing effect by sorting the color values of each pixel.  There are many, many different ways to accomplish this with many different tools, but I'm going to focus on my particular workflow (i.e., I don't have anything novel to contribute other than a workflow - others have implemented the algorithms already).
+
+To accomplish this, I use the `pixelsort` library available in Python c/o this GitHub repository: [Python pixel sorting library](https://github.com/satyarth/pixelsort){:target="\_blank"}.
+
+{: .note }
+> I run Windows with WSL (Linux terminal) as that is my preference for a development environment.  If you have a different setup you'll need to install the dependencies for your particular system.  Additionally, I'm using it as a terminal call, whereas you can use it in your own Python scripts if you prefer (see the [documentation](https://github.com/satyarth/pixelsort){:target="\_blank"}).
+
+One thing to keep in mind is that this will affect the whole image.
+
+{: .note }
+> If you want more control over your sorting, you'll either need to define a mask image (which I won't be going into but is available in the above GitHub link) or use another tool such as Photoshop.
+
+## Examples
+
+Here are a few examples of things I have pixel sorted using the techniques mentioned here.  
+
+<!-- ![Pixel sort 1](../assets/tutorial-imgs/23.square.png){:width="45%"} -->
+![Pixel sort 1](../assets/tutorial-imgs/saturation_random_16.png){:width="45%"}
+![Pixel sort 2](../assets/tutorial-imgs/hue_none_19.png){:width="45%"}
+
+> *Unfortunately, I did not record the settings for these ones.  I ran a batch load to create them and randomized all parameters (as we'll see in **Automation** soon enough).*
+
+# Basic Usage
+
+Ok, let's play around with the `pixelsort` library.  If you pop over to its [GitHub repository](https://github.com/satyarth/pixelsort){:target="\_blank"} you'll note there are several options we can configure.  In terms of tweaking the actual output, we'll check out:
+
+* **Interval functions `(-i)`**
+* **Sorting functions `(-s)`**
+
+Each of these guide the main *look and feel* of the outputs.  For each, you can select the style as well as fine-tune its parameters.  I'll again point you towards the repo for the full documentation, but will leave you with a few samples of what we can do.
+
+Let's start with this reference image (something I made a while ago in p5.js):
+
+![Base pixel sorting image](../assets/tutorial-imgs/a-return-to-form.ascii.smol.png)
+
+
+And let's pixel sort it with the *standard* algorithm (sorting vertically then horizontally):
+
+```bash
+$ python3 -m pixelsort sample.png -a 90 -o sample.sorted.png
+```
+
+This results in the following:
+
+![Pixel sort example 1](../assets/tutorial-imgs/sample.sorted.png)
+
+And then pixel sorting that output horizontally:
+
+```bash
+$ python3 -m pixelsort sample.sorted.png -o sample.sorted.2.png
+```
+
+![Pixel sort example 1](../assets/tutorial-imgs/sample.sorted.2.png)
+
+These examples used the defaults for everything except angle (`-a` flag).  We could get crazy and have it sort based on wave intervals:
+
+```bash
+$ python3 -m pixelsort sample.png -i waves -c 100 -o sample.sorted.waves.png
+```
+
+This results in a wavey friend:
+
+![Pixel sort example - waves](../assets/tutorial-imgs/sample.sorted.waves.png)
+
+At this point I'm just having fun with parameters.  Again, feel free to experiment with all the features you can get out of the library.  If you're feeling frisky, you can always implement your own pixel sorting algorithm (though, that delves into the realm of general sorting algorithms). 
+
+# Automation
+
+Ok, we can pixel sort on the terminal (hopefully).  Let's bring in some randomness to give us a large number of options to check out.
+
+{: .note }
+> I'm going to use bash for this, as I have a weird predilection for all things terminal.  You can script this out however you'd like (e.g., Python, Java, PowerShell, etc.).
+
+There are a few goals here:
+
+1. Randomly generate parameters for the `pixelsort` library to use.
+
+2. Generate a large number of image outputs to really explore the space of possibilities.
+
+I'm not going to do much intelligence here as I just want a large swath of outputs, but you could be cute with interlocking if-statements to force your images towards a particular style, or re-sort those that you've already crunched up.  Your preference really. 
+
+But first...
+
+{: .warning}
+> Bash is **extremely** case-sensitive and spacing-sensitive.  You've been warned.
+
+Ok, bash time.  This isn't a primer on bash, however.  [This is a primer on bash](https://benkyriakou.com/posts/bash-primer){:target="\_blank"}.
+
+First and foremost, we need to generate random numbers.  In bash that's pretty straightforward (and [here's a quick guide to that as well](https://linuxconfig.org/generating-random-numbers-in-bash-with-examples){:target="\_blank"}).
+
+To get a random integer, we can just call:
+
+```bash
+num=$(( $RANDOM ))
+```
+
+`num` results in a completely random integer within the space of valid integers.  Though, we want random integers within specified ranges for our purposes (i.e., using in a parameter list):
+
+Random integer within a range of 1 and 100:
+
+```bash
+num=$(( $RANDOM % 100 + 1))
+```
+
+Additionally, we're going to define arrays with all of the parameters we (i.e., I) care about, create random indices into those arrays, etc.  I'm going to hand-wave the bash syntax and assume you can look that up on your own if you want to extrapolate.
+
+One final point of note: there are several ways to accomplish what I'm about to do.  I tend to brute force things, so you might look at my syntax and think it is icky.  That is the right of all developers.  If it is particularly offensive consider a pull request, however it is legible and works for me.
+
+We can put that together into a bash script we'll name `run-sort.sh`.  First, we'll call the script once to make sure things are working.
+
+```bash
+#!/bin/bash
+# Define arrays of parameters to randomly choose later
+INTERVAL[0]="random"
+INTERVAL[1]="edges"
+INTERVAL[2]="threshold"
+INTERVAL[3]="waves"
+INTERVAL[4]="none"
+# Get the size of the INTERVAL array
+isize=${#INTERVAL[@]}
+
+SORT[0]="lightness"
+SORT[1]="hue"
+SORT[2]="saturation"
+SORT[3]="intensity"
+SORT[4]="minimum"
+# Get the size of the SORT array
+ssize=${#SORT[@]}
+
+# Choose random indices to work with
+i_idx=$(( $RANDOM % isize ))
+s_idx=$(( $RANDOM % ssize ))
+
+# Choose a random character length between [20,500]
+c=$(( $RANDOM % 500 + 20 ))
+
+# And a random angle to sort at
+angle=$(( $RANDOM % 360 ))
+
+# And now call pixel sort!
+echo "Sorting information: angle [$angle], sort [${SORT[$s_idx]}], interval [${INTERVAL[$i_idx]}], char_length [$c]"
+python3 -m pixelsort sample.png -a $angle -s ${SORT[$s_idx]} -i ${INTERVAL[$i_idx]} -c $c -o sample.sorted.png
+```
+
+And assuming that `sample.png` is in the same directory as `run-sort.sh`, we can call it by: 
+
+```bash
+$ bash run-sort.sh
+```
+
+So what happened here?  We defined two arrays (`INTERVAL` and `SORT`) that contained each of the parameters for their respective functions in the `pixelsort` library.  We then selected a random index into each array (`i_idx` and `s_idx`, respectively).  We also selected a random angle for sorting as well as a random character length to influence the sorting algorithm.  We then created a new output file that delineates it from the original.  
+
+The `echo` statement ensures we know what parameters are being called so that we can remember which random values were ideal for our purposes.  Might help to write them down as well (or redirect them to an output file...`bash run-sort.sh | tee sort_output.txt`)
+
+In terms of output, I see the following:
+
+```bash
+Sorting information: angle [319], sort [hue], interval [threshold], char_length [35]
+```
+
+resulting in an image that looks like this:
+
+![Sorted by script](../assets/tutorial-imgs/sample.sorted.scripted.png)
+
+# Creating Glitchy Frames for an Animation
+
+One of my favorite ways to glitch up a source image is to turn into a glitchy animation.  The general flow for this process is:
+
+1. Have a beautiful source image to destroy.
+
+2. Create a set number of frames for the animation (in this case, 100).
+
+3. Select a random number `r` within [0,100] and make a choice:
+
+  * If `r` < 25, pixel sort it.
+  * Else, make a copy and move on.
+
+What this does is to provide a 25\% chance that pixel sorting will occur.  You could extrapolate that this might make applying this workflow to an existing video/animation even more interesting (and you'd be correct).
+
+Let's touch up our script now to include our loop.  First and foremost, we'll need to create an output folder:
+
+```bash
+$ mkdir output
+```
+
+Phew, not too shabby.  And the script:
+
+```bash
+#!/bin/bash
+# Define arrays of parameters to randomly choose later
+INTERVAL[0]="random"
+INTERVAL[1]="edges"
+INTERVAL[2]="threshold"
+INTERVAL[3]="waves"
+INTERVAL[4]="none"
+# Get the size of the INTERVAL array
+isize=${#INTERVAL[@]}
+
+SORT[0]="lightness"
+SORT[1]="hue"
+SORT[2]="saturation"
+SORT[3]="intensity"
+SORT[4]="minimum"
+# Get the size of the SORT array
+ssize=${#SORT[@]}
+
+for i in {1..100}; do
+  # Pick our random number
+  r=$(( $RANDOM % 100 ))
+  if (( $r < 25 )); then
+    # Choose random indices to work with
+    i_idx=$(( $RANDOM % isize ))
+    s_idx=$(( $RANDOM % ssize ))
+
+    # Choose a random character length between [20,500]
+    c=$(( $RANDOM % 500 + 20 ))
+
+    # And a random angle to sort at
+    angle=$(( $RANDOM % 360 ))
+
+    # And now call pixel sort!
+    echo "Sorting information: angle [$angle], sort [${SORT[$s_idx]}], interval [${INTERVAL[$i_idx]}], char_length [$c]"
+    python3 -m pixelsort sample.png -a $angle -s ${SORT[$s_idx]} -i ${INTERVAL[$i_idx]} -c $c -o output/$i.png
+  else
+    # otherwise, make a copy of our source
+    cp sample.png output/$i.png
+  fi
+done
+```
+
+After running this, you should see 100 PNGs within your `output` directory.  How delightful.
+
+## Creating the GIF
+
+At this point, we should have a sequence of images that need to be stitched together into an animation/movie.  My preference is to start by making a GIF and then converting to other formats, however others like to immediately jump to their format of choice (e.g., using `ffmpeg` to stitch them into an `mp4` file). 
+
+To create a high quality GIF I use the `gif.ski` terminal application to stitch the images together: [gif.ski](https://gif.ski/){:target="\_blank"}.
+
+Assuming that my images are in the `output` folder, I would create a GIF as follows:
+
+```bash
+$ gifski --output sample.sorted.gif --fps 24 --quality 100 --width 1000 output/*.png 
+```
+
+{: .note }
+> You can even add the above line to the end of your bash script, as long as you make the parameters match nicely.
+
+And if you wanted to be fancy and clean up after yourself (i.e., delete all those PNGs you just made):
+
+```bash
+$ gifski --output sample.sorted.gif --fps 24 --quality 100 --width 1000 output/*.png  && rm output/*.png
+```
+
+This gives us:
+
+![Pixel sorted gif](../assets/tutorial-imgs/sample.sorted.gif)
+
+Typically what I would do now is upload it to [Imgur](https://imgur.com/){:target="\_blank"} and keep it there for posterity, sharing the `gifv` with Reddit/Discord.  Additionally, you can grab the `mp4` file from Imgur and lo and behold, it already comes in a format that is postable to Twitter.
+
+# Additional references
+
+* [Pixel sorting in p5js](https://codingtrain.github.io/website-archive/CodingChallenges/047-pixelsorting.html){:target="\_blank"}
+* [Pixel sorting in Python](https://www.startprism.com/pixel-sorting-in-python/){:target="\_blank"}
+* [Pixel sorting in GLSL](https://ciphrd.com/2020/04/08/pixel-sorting-on-shader-using-well-crafted-sorting-filters-glsl/){:target="\_blank"}

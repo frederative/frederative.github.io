@@ -1,0 +1,23 @@
+/*body {
+    background: url('./512-bump.jpg') repeat;
+}
+*/
+body {
+    background: rgb(20, 20, 20);
+    background: linear-gradient(90deg, rgba(20, 20, 20, 1) 0%, rgba(155, 0, 155, 1) 15%, rgba(0, 112, 155, 1) 85%, rgba(20, 0, 20, 1) 100%);
+
+}
+
+.side-bar {
+    background: none; //rgba(20, 20, 20, 0.95);
+}
+
+.main-content {
+    padding: 20px;
+    background: rgba(20, 20, 20, 0.95);
+}
+
+video {
+    object-fit: cover;
+    max-width: 100%;
+}
