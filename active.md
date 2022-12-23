@@ -51,7 +51,7 @@ has_toc: true
     <source src="https://i.imgur.com/quSQhJb.mp4" type="video/mp4">
 </video>
 
-#### [del_ete.me\{\{redux\}\}] - 1 xtz [5/64]
+#### [del_ete.me\{\{redux\}\}] - 1 xtz [6/64]
 
 [![del_ete.me\{\{redux\}\}](https://glitchforge.xyz/ipfs/QmV1tyTqmk11Ymi4FC6wwhuEFS9g27vva4dHmvX9PgXDbs)](https://glitchforge.xyz/ondemand/71-deletemeredux){:target="_blank"}
 
