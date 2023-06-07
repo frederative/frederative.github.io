@@ -14,6 +14,9 @@ nav_external_links:
   - title: twitter
     url: https://twitter.com/frederative
     hide_icon: true # set to true to hide the external link icon - defaults to false
+  - title: instagram
+    url: https://www.instagram.com/frederative_art/
+    hide_icon: true
 
 callouts:
   warning:
