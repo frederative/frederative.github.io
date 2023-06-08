@@ -15,6 +15,13 @@ hi there, i'm a generative artist exploring nature-based algorithms.
 
 ----
 
+## irl shops
+<span class="fs-8">
+[inprnt](https://www.inprnt.com/profile/frederative/){: .btn }{:target="_blank"}
+</span>
+
+
+
 ## profiles on tezos
 
 <span class="fs-8">
